@@ -8,7 +8,7 @@ SingUpController.$inject = ['MenuService','$scope'];
 function SingUpController(MenuService,$scope) {
   var reg = this;
   reg.invalidMenu=0;
-
+  reg.MenuName="";
   reg.submit = function () {
     console.log("submit");
     var Response=MenuService.checkFavoriteDish(reg);
@@ -28,14 +28,15 @@ function SingUpController(MenuService,$scope) {
       var Response=MenuService.checkFavoriteDish(reg);
       Response.then(function (response) {
         console.log('response from menu:',response)
-        reg.invalidMenu=1;
+        reg.invalidMenu=3;
         MenuService.menu=response.data;
         MenuService.reg=reg;
+        reg.MenuName=response.data;
       });
       Response.catch(function (error) {
         console.log('error:',error)
         reg.invalidMenu=2;
-      });      
+      });
   };
 }
 

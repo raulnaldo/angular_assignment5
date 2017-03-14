@@ -1,0 +1,50 @@
+<div class="container">
+<div class="row">
+<div class="col">
+</div>
+<div class="col-5">
+<div ng-if="!userInfo.menu.category_short_name" >
+  Not Signed Up Yet.<a ui-sref="public.singup">Sign up Now!</a>
+</div>
+<div ng-if="userInfo.menu.category_short_name" >
+  <form>
+    <div class="form-group">
+      <label for="disabledTextInput">First Name</label>
+      <input type="text" ng-disabled="true" id="disabledTextInput" class="form-control" placeholder={{userInfo.reg.user.firstname}}>
+    </div>
+    <div class="form-group">
+      <label for="disabledTextInput">Last Name</label>
+      <input type="text" ng-disabled="true" id="disabledTextInput" class="form-control" placeholder={{userInfo.reg.user.lastname}}>
+    </div>
+    <div class="form-group">
+      <label for="disabledTextInput">Email</label>
+      <input type="text" ng-disabled="true" id="disabledTextInput" class="form-control" placeholder={{userInfo.reg.user.emailaddress}}>
+    </div>
+    <div class="form-group">
+      <label for="disabledTextInput">Phone Number</label>
+      <input type="text" ng-disabled="true" id="disabledTextInput" class="form-control" placeholder={{userInfo.reg.user.phonenumber}}>
+    </div>
+  </form>
+
+  <div class="menu-item-tile col-md-6">
+    <div class="row">
+      <div class="col-sm-5">
+        <div class="menu-item-photo">
+          <div>{{userInfo.menu.category_short_name}}</div>
+          <img class="img-responsive" width="250" height="150" ng-src="{{userInfo.basePath}}/images/{{userInfo.menu.short_name}}.jpg" alt="{{userInfo.menu.name}}">
+        </div>
+        <div class="menu-item-price">{{userInfo.menu.price_small | currency}}<span> {{userInfo.menu.small_portion_name}}</span> {{userInfo.menu.price_large | currency}} <span>{{userInfo.menu.large_portion_name}}</span></div>
+      </div>
+      <div class="menu-item-description col-sm-7">
+        <h3 class="menu-item-title">{{userInfo.menu.name}}</h3>
+        <p class="menu-item-details">{{userInfo.menu.description}}</p>
+      </div>
+    </div>
+    <hr class="visible-xs">
+  </div>
+
+</div>
+<div class="col">
+</div>
+</div>
+</div>

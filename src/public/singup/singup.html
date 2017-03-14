@@ -1,0 +1,108 @@
+<div class="container">
+<div class="row">
+<div class="col">
+</div>
+<div class="col-5">
+<form name='regForm' novalidate>
+  <div class="form-group">
+    <label for="inputName" class="control-label">First Name</label>
+    <input type="text" class="form-control" name="firstname" placeholder="Pick a username"
+      ng-model="reg.user.firstname"
+      required
+      minlength="4"
+      ng-maxlength="10">
+      {{ reg.user.firstname }}
+      <span
+        ng-if="(regForm.firstname.$error.minlength || regForm.firstname.$error.required) && regForm.firstname.$touched">
+        First Name must be at least 4 characters long
+      </span>
+      <span ng-if="regForm.firstname.$error.maxlength && regForm.firstname.$touched">
+        First Name must not be longer than 10 characters
+      </span>
+      <br>
+  </div>
+
+  <div class="form-group">
+    <label for="inputName" class="control-label">Last Name</label>
+    <input type="text" class="form-control" name="lastname" placeholder="Last Name"
+      ng-model="reg.user.lastname"
+      required
+      minlength="4"
+      ng-maxlength="10">
+      {{ reg.user.lastname }}
+      <span
+        ng-if="(regForm.lastname.$error.minlength || regForm.lastname.$error.required) && regForm.lastname.$touched">
+        Last Name must be at least 4 characters long
+      </span>
+      <span ng-if="regForm.lastname.$error.maxlength && regForm.lastname.$touched">
+        Last Name must not be longer than 10 characters
+      </span>
+      <br>
+  </div>
+  <div class="form-group">
+    <label for="inputName" class="control-label">email address</label>
+    <input type="email" class="form-control" name="emailaddress" placeholder="email address"
+      ng-model="reg.user.emailaddress"
+      required
+      minlength="4"
+      ng-maxlength="255">
+      {{ reg.user.emailaddress }}
+      <span
+        ng-show="regForm.emailaddress.$error.email && regForm.emailaddress.$touched">
+        Not valid email address!!
+      </span>
+
+      <br>
+  </div>
+  <div class="form-group">
+    <label for="inputName" class="control-label">phone number</label>
+    <input type="text" class="form-control" name="phonenumber" placeholder="phone number"
+      ng-model="reg.user.phonenumber"
+      required
+      minlength="4"
+      ng-maxlength="10">
+      {{ reg.user.phonenumber }}
+      <span
+        ng-if="(regForm.phonenumber.$error.minlength || regForm.phonenumber.$error.required) && regForm.phonenumber.$touched">
+        Phone number format is not correct.
+      </span>
+      <span ng-if="regForm.phonenumber.$error.maxlength && regForm.phonenumber.$touched">
+        Phone number format is not correct.
+      </span>
+      <br>
+  </div>
+  <div class="form-group">
+    <label for="inputName" class="control-label">favorite dish</label>
+    <input type="text" class="form-control" name="favdish" placeholder="favorite dish"
+      ng-model="reg.user.favdish"
+      required
+      minlength="2"
+      ng-maxlength="3"
+      ng-keyup="onBlurFavDish(reg.user.favdish)">
+      {{ reg.user.favdish }}
+      <span
+        ng-if="(regForm.favdish.$error.minlength || regForm.favdish.$error.required) && regForm.favdish.$touched">
+        Favorite dish must be at least 2 characters long
+      </span>
+      <span ng-if="regForm.favdish.$error.maxlength && regForm.favdish.$touched">
+        Favotite dish must not be longer than 2 characters
+      </span>
+      <br>
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary"  ng-disabled="regForm.$invalid || reg.invalidMenu==2" ng-click="reg.submit()">Submit</button>
+  </div>
+  <div style="margin-top: 10px;">
+    <span ng-if="reg.invalidMenu==2">
+      No such menu number exists.
+    </span>
+    <span ng-if="reg.invalidMenu==1">
+      Your information has been saved.
+    </span>
+  </div>
+</form>
+</div>
+<div class="col">
+</div>
+</div>
+</div>

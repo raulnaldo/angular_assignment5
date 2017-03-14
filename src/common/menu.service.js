@@ -31,10 +31,9 @@ function MenuService($http, ApiPath) {
   };
 
 
-  service.checkFavoriteDish = function (reg) {
-    var config = {};
-    console.log(reg.user.favdish);
-    return $http.get(ApiPath + '/menu_items/'+reg.user.favdish+'.json')
+  service.checkFavoriteDish = function (pFavDish) {
+    var config = {};    
+    return $http.get(ApiPath + '/menu_items/'+pFavDish+'.json')
   };
 
 
